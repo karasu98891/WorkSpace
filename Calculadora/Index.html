@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Calculadora 8 mil</title>
+  <style>
+  .title {
+    font-size: 40px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .text {
+    margin: 10px auto;
+    text-align: center;
+  }
+  .input {
+    margin-left: 23%;
+  }
+  #button {
+    width: 90px;
+    margin: 15px auto;
+    text-align: center;
+    background-color: #bfbfbf;
+    border-style: solid;
+    border-color: black;
+    border-width: 2.2px;
+  }
+  #out {
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <div class="title">
+    <b>Calculadora</b>
+  </div>
+  
+  <div class="text">
+    Primeiro numero
+  </div>
+    <input class="input" id="1" type="text"> 
+  <div class="text">
+    Segundo numero
+  </div>
+    <input class="input" id="2" type="text"> 
+  
+  <div id="button" onclick=soma()>Somar..</div>
+  <div id="out"></div>
+  <script>
+  let ab = document.getElementById("1")
+  let ab2 = document.getElementById("2")
+  
+  function soma() {
+    let soma = ab.value + ab2.value;
+    let count = 0;
+    document.getElementById("out").innerHTML = "loading"
+  
+    const a = setInterval(function() {
+      count++;
+      document.getElementById("out").innerHTML += "."
+      console.log(count)
+      
+      if (count == 8) {
+        document.getElementById("out").innerHTML = (soma == "") ? "poem algo nas caixas de texto menó" : soma;
+        clearInterval(a)
+      } else if ((count % 4) == 0) {
+        document.getElementById("out").innerHTML = "loading"
+      }
+    }, 1000);
+  }
+  </script>
+</body>
+  </html>
